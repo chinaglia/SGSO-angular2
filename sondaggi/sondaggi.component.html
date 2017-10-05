@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+			<ul class="nav navbar-nav" >
+		  <li><a routerLink="../">Dashboard</a></li>
+		  <li class="active"><a routerLink="sondaggi">Sondaggi</a></li>
+		  <li><a href="#">Reports</a></li>
+		  <li><a href="#">Utenti</a></li>
+		  <li><a href="#">News</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+		 <li><input type="text" class="w3-bar-item w3-input w3-black w3-mobile" placeholder="Search..."></li>
+			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">All<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+				  <li><a href="#">Sondaggi</a></li>
+				  <li><a href="#">Categorie</a></li>
+				  <li><a href="#">News</a></li>
+				</ul>
+			</li>
+		  <li><button class="w3-btn w3-black w3-round-large" style="height:30px; margin-top:9px; line-height:9px">Search</button></li>
+		  <li><a href="#"><span class="glyphicon glyphicon-user"></span> My Account</a></li>
+		  <li><a href="#" (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+		</ul>
+		</div><hr style="margin: 0px">
+	    <div class="container-fluid" >
+			 <ul class="nav navbar-nav" style="line-height:1px">
+			  <li><a>Gestione Sondaggi</a></li>
+			</ul>
+		</div>
+	</nav> 
+	<div class="container-fluid">
+		<h3 style="margin: 0 0px 20px 20px; font-weight:bold">Sondaggi
+		  <button type="button" class="btn btn-primary" style="background-color:#3d3d3d; margin-left:10px;" (click)="elimina()">- Elimina</button>
+		  <button type="button" class="btn btn-primary" style="background-color:red" routerLink="inserisci-sondaggio">+ Nuovo Sondaggio</button>
+		</h3>
+	</div>
+	  <div class="container">
+	<div class="table-responsive">
+  <table class="table table-condensed table-striped table-bordered table-hover no-margin">
+    <thead style="background-color:#3d3d3d; color: white">
+      <tr>
+        <th style="width:4%">
+          <input type="checkbox" (click)="selezionaTutto()" [(ngModel)]="selectedAll">
+        </th>
+        <th style="width:34%" >Titolo</th>
+        <th style="width:20%" class="data">Data creazione</th>
+        <th style="width:10%" class="stato">Stato</th>
+        <th style="width:15%" class="autore">Autore</th>
+        <th style="width:18%" class="azioni">Azioni</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sondaggio of sondaggi">
+        <td>
+          <input type="checkbox" [checked]="selectedAll"  (change)="onChange(sondaggio)" >
+        </td>
+        <td>
+          <span class="name" #titolo>{{sondaggio.title}}</span>
+        </td>
+        <td class="data" #data> {{sondaggio.data}}</td>
+        <td class="stato">
+          <span class="label label label-info" #stato>{{sondaggio.stato}}</span>
+        </td>
+        <td class="autore" #autore>{{sondaggio.autore}}</td>
+        <td class="azioni">
+          <div class="btn-group">
+            <button data-toggle="dropdown" class="btn btn-xs dropdown-toggle" data-original-title="" title="">
+              Azioni
+              <span class="caret">
+              </span>
+            </button>
+            <ul class="dropdown-menu pull-right">
+              <li>
+                <a href="#">Inserisci argomenti</a>
+              </li> 
+			  <li>
+                <a href="#">Inserisci domande</a>
+			  </li>
+              <li>
+                <a href="#">Elimina sondaggio</a>
+              </li>
+			  <li>
+                <a href="#">Crea report</a>
+              </li>
+			  <li>
+                <a href="#">Copia sondaggio</a>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</body>
+  <app-footer></app-footer>
+</html>
+

@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<form (submit)="Accesso($event)">
+<h1>Benvenuto!</h1>
+	<div class="input" name="username" >
+		<label>Username</label>
+		<input type="text" [(ngModel)]="username" name="username">
+	</div>
+	<div class="input" name="password" >
+		<label>Password</label>
+		<input type="password" [(ngModel)]="password" name="password">
+	</div>
+	  <button class="w3-btn w3-blue w3-border w3-border-blue w3-round-large">Accedi</button>
+</form>

@@ -1,0 +1,9 @@
+tbody tr td{
+	height: 30px;
+	line-height: 30px;
+}
+
+thead tr th{
+	height: 30px;
+	line-height: 30px;
+}

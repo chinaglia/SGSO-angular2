@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<div class="container">
+<form>
+  <div class="form-group">
+    <label>Titolo</label>
+    <input type="text" class="form-control" [(ngModel)]="titolo" name="titolo" >
+  </div>
+  <div class="form-group">
+    <label>Data creazione</label>
+    <input type="text" class="form-control" placeholder="gg/mm/aa" [(ngModel)]="data" name="data" >
+  </div>
+	<div class="form-group">
+    <label>Stato</label>
+    <select class="form-control" [(ngModel)]="stato" name="stato">
+      <option>Accessibile</option>
+      <option>Chiuso</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Autore</label>
+    <select class="form-control" [(ngModel)]="autore" name="autore">
+      <option>Amministratore 1</option>
+      <option>Amministratore 2</option>
+      <option>Amministratore 3</option>
+      <option>Amministratore 4</option>
+      <option>Amministratore 5</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="inserisciSondaggio(titolo,data,stato,autore)" routerLink="../">Conferma</button>
+  <button type="submit" class="btn btn-primary" routerLink="../">Annulla</button>
+
+  </form>
+</div>
